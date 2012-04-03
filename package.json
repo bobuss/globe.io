@@ -1,0 +1,28 @@
+{
+  "name": "globe.io",
+  "preferGlobal": "false",
+  "version": "0.1.0",
+  "author": "Bertrand Tornil <bertand.tornil@gmail.com>",
+  "description": "Twitter streaming API on a WebGL globe",
+  "scripts" : {
+    "start": "node server.js"
+  },
+  "repository": {},
+  "keywords": [
+    "Twitter",
+    "streaming api",
+    "webGL",
+    "three.js"
+  ],
+  "dependencies": {
+    "base64" : "2.0.7",
+    "config": "0.4.x",
+    "socket.io": "0.9.x",
+    "connect": "2.0.x"
+  },
+  "devDependencies": {},
+  "licence": "©2012 IsCool Entertainment",
+  "engine": {
+    "node": ">=0.6"
+  }
+}

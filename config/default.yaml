@@ -1,0 +1,5 @@
+twitter:
+  login: YOUR_TWITTER_LOGGIN
+  password: YOUR_TWITTER_PASSWORD
+
+http_port: 8129

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Globe.io</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="css/globe.css" />
+  </head>
+  <body onload="init();">
+
+    <div id="content"></div>
+
+    <script type="text/javascript" src="js/Three.js"></script>
+    <script type="text/javascript" src="js/Three/ThreeExtras.js"></script>
+    <script type="text/javascript" src="js/Three/Detector.js"></script>
+    <script type="text/javascript" src="js/Three/Stats.js"></script>
+    <script type="text/javascript" src="js/globe.js"></script>
+
+    <script>
+
+
+    function init() {
+
+      // main
+      var socket = io.connect(location.protocol + '//' + location.hostname + ':' + location.port);
+
+      var globe = new Globe({
+        container: "content",
+        points_limit: 8,
+        arcs_limit: 7
+      });
+
+      var points = [];
+
+      socket.on('geotag', function(data) {
+        if (null != data) {
+
+          points.push([data.longitude, data.latitude]);
+
+          globe.addPoint(data.longitude, data.latitude);
+
+          if (points.length >= 2) {
+            globe.addGreatArc(points[points.length-1], points[points.length-2]);
+            points.shift();
+          }
+        }
+      });
+    }
+
+    </script>
+  </body>
+</html>
+
