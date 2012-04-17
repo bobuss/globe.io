@@ -21,7 +21,7 @@
     "connect": "2.0.x"
   },
   "devDependencies": {},
-  "licence": "©2012 IsCool Entertainment",
+  "licence": "MIT",
   "engine": {
     "node": ">=0.6"
   }
